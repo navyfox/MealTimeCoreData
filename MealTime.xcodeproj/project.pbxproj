@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20009D6D1D48B3C200329554 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20009D6C1D48B3C200329554 /* CoreDataStack.swift */; };
 		3513CC791C0C5DB600D09A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513CC781C0C5DB600D09A1A /* AppDelegate.swift */; };
 		3513CC7B1C0C5DB600D09A1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513CC7A1C0C5DB600D09A1A /* ViewController.swift */; };
 		3513CC7E1C0C5DB600D09A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3513CC7C1C0C5DB600D09A1A /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20009D6C1D48B3C200329554 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../CoreDataStack.swift; sourceTree = "<group>"; };
 		3513CC751C0C5DB600D09A1A /* MealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3513CC781C0C5DB600D09A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3513CC7A1C0C5DB600D09A1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				3513CC781C0C5DB600D09A1A /* AppDelegate.swift */,
 				3513CC7A1C0C5DB600D09A1A /* ViewController.swift */,
+				20009D6C1D48B3C200329554 /* CoreDataStack.swift */,
 				3513CC7C1C0C5DB600D09A1A /* Main.storyboard */,
 				3513CC821C0C5DB600D09A1A /* Assets.xcassets */,
 				3513CC841C0C5DB600D09A1A /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20009D6D1D48B3C200329554 /* CoreDataStack.swift in Sources */,
 				3513CC7B1C0C5DB600D09A1A /* ViewController.swift in Sources */,
 				3513CC791C0C5DB600D09A1A /* AppDelegate.swift in Sources */,
 			);
