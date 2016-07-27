@@ -15,7 +15,7 @@ class CoreDataStack {
 
 //обозначили адрес где будет храится файл
     private lazy var appDocDir: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DesktopDirectory, inDomains: .UserDomainMask)
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count - 1]
     }()
 
@@ -27,19 +27,19 @@ class CoreDataStack {
     }()
 
 //создаем persistentStoreCoordinator
-    private var persistentStoreCoordinator: NSPersistentStoreCoordinator {
-        let cordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.appDocDir.URLByAppendingPathComponent(self.modelName)
 
         do {
             // options True - соединение баз данных, мы можем обьединить модели
             let options = [NSMigratePersistentStoresAutomaticallyOption: true]
-            try cordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
         } catch {
             print("Can't add persistent store")
         }
-        return cordinator
-    }
+        return coordinator
+    }()
 
 //создаем managedObjectModel
     private lazy var managedObjectModel: NSManagedObjectModel = {

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var array: Array<NSDate> = []
     var managedObjectContext: NSManagedObjectContext!
+    var currentPerson: Person!
     
     lazy var dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
@@ -27,6 +28,26 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+        let myEntity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)
+        let personName = "Max"
+
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", personName)
+
+        do {
+            let result = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Person]
+            if !result.isEmpty {
+                currentPerson = result.first
+            } else {
+                currentPerson = NSManagedObject(entity:  myEntity!, insertIntoManagedObjectContext: managedObjectContext) as! Person
+                currentPerson.name = personName
+                try managedObjectContext.save()
+            }
+        } catch let error as NSError {
+            print("Error: \(error.localizedDescription)")
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,21 +60,34 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return currentPerson.meals!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
-        let date = array[indexPath.row]
+        let meal = currentPerson.meals![indexPath.row] as! Meal
         
-        cell!.textLabel!.text = dateFormatter.stringFromDate(date)
+        cell!.textLabel!.text = dateFormatter.stringFromDate(meal.date!)
         return cell!
     }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
-        let date = NSDate()
-        array.append(date)
+        let mealEntity = NSEntityDescription.entityForName("Meal", inManagedObjectContext: managedObjectContext)
+        let meal = NSManagedObject(entity: mealEntity!, insertIntoManagedObjectContext: managedObjectContext) as! Meal
+
+        meal.date = NSDate()
+
+        let meals = currentPerson.meals?.mutableCopy() as! NSMutableOrderedSet
+        meals.addObject(meal)
+        currentPerson.meals = meals.copy() as? NSOrderedSet
+
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Error occured: \(error.localizedDescription)")
+        }
+
         tableView.reloadData()
     }
 
