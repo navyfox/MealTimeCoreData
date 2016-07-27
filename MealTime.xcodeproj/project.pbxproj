@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20009D6D1D48B3C200329554 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20009D6C1D48B3C200329554 /* CoreDataStack.swift */; };
+		20009D701D48D2BE00329554 /* MealTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20009D6E1D48D2BE00329554 /* MealTime.xcdatamodeld */; };
 		3513CC791C0C5DB600D09A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513CC781C0C5DB600D09A1A /* AppDelegate.swift */; };
 		3513CC7B1C0C5DB600D09A1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513CC7A1C0C5DB600D09A1A /* ViewController.swift */; };
 		3513CC7E1C0C5DB600D09A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3513CC7C1C0C5DB600D09A1A /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		20009D6C1D48B3C200329554 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../CoreDataStack.swift; sourceTree = "<group>"; };
+		20009D6F1D48D2BE00329554 /* MealTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealTime.xcdatamodel; sourceTree = "<group>"; };
 		3513CC751C0C5DB600D09A1A /* MealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3513CC781C0C5DB600D09A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3513CC7A1C0C5DB600D09A1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				3513CC821C0C5DB600D09A1A /* Assets.xcassets */,
 				3513CC841C0C5DB600D09A1A /* LaunchScreen.storyboard */,
 				3513CC871C0C5DB600D09A1A /* Info.plist */,
+				20009D6E1D48D2BE00329554 /* MealTime.xcdatamodeld */,
 			);
 			path = MealTime;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				20009D6D1D48B3C200329554 /* CoreDataStack.swift in Sources */,
 				3513CC7B1C0C5DB600D09A1A /* ViewController.swift in Sources */,
 				3513CC791C0C5DB600D09A1A /* AppDelegate.swift in Sources */,
+				20009D701D48D2BE00329554 /* MealTime.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +295,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		20009D6E1D48D2BE00329554 /* MealTime.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20009D6F1D48D2BE00329554 /* MealTime.xcdatamodel */,
+			);
+			currentVersion = 20009D6F1D48D2BE00329554 /* MealTime.xcdatamodel */;
+			path = MealTime.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3513CC6D1C0C5DB600D09A1A /* Project object */;
 }

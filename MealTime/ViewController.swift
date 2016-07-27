@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var array: Array<NSDate> = []
+    var managedObjectContext: NSManagedObjectContext!
     
     lazy var dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
