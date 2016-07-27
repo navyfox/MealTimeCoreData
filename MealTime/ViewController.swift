@@ -71,6 +71,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell!.textLabel!.text = dateFormatter.stringFromDate(meal.date!)
         return cell!
     }
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let itemToDelete = currentPerson.meals![indexPath.row] as! Meal
+            managedObjectContext.deleteObject(itemToDelete)
+
+            do {
+                try managedObjectContext.save()
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            } catch let error as NSError {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+}
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         let mealEntity = NSEntityDescription.entityForName("Meal", inManagedObjectContext: managedObjectContext)
